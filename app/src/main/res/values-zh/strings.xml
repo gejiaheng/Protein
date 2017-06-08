@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2017 Jiaheng Ge
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+    <string name="app_name">Protein</string>
+
+    <string name="label_auth">登录</string>
+
+    <string name="dialog_ok">确认</string>
+    <string name="dialog_cancel">取消</string>
+
+    <string name="login">通过 Dribbble 帐号登录</string>
+    <string name="login_pre_title">Nice to meet you</string>
+    <string name="login_pre_description">Protein is an unbiased Dribbble App to feed you with daily
+        design protein. Hope you enjoy it!
+    </string>
+    <string name="login_pre_button">登录 Dribbble</string>
+    <string name="request_access_token_failed">请求失败，请重试</string>
+    <string name="login_to_proceed">请登录后操作</string>
+
+    <string name="empty">还没有内容</string>
+    <string name="error">出了点问题</string>
+    <string name="retry">重试</string>
+
+    <string name="home_tab_popular">热门</string>
+    <string name="home_tab_following">关注</string>
+    <string name="home_tab_recent">最近</string>
+    <string name="home_tab_debuts">新秀</string>
+
+    <string name="action_login">登录</string>
+    <string name="action_logout">登出</string>
+    <string name="action_about">关于</string>
+
+    <string name="shot_views">浏览</string>
+    <string name="shot_likes">喜爱</string>
+    <string name="shot_comments">评论</string>
+    <string name="shot_share">分享</string>
+    <string name="shot_comment_edit_hint">添加评论</string>
+    <string name="shot_comment_send_failed">评论失败</string>
+    <string name="shot_views_count">%1$d 浏览</string>
+    <string name="shot_likes_count">%1$d 喜爱</string>
+    <string name="shot_comments_count">%1$d 评论</string>
+    <string name="shot_detail_more_title">来自 %1$s 的更多作品</string>
+
+    <string name="user_follow">关注</string>
+    <string name="user_following">已关注</string>
+    <string name="user_tab_shots">作品</string>
+    <string name="user_tab_likes">喜爱</string>
+    <string name="user_tab_followers">被关注</string>
+    <string name="user_tab_following">正在关注</string>
+
+    <string name="user_info">%1$d 作品 %2$d 被关注</string>
+
+    <string name="logout_title">登出</string>
+    <string name="logout_message">欢迎再次回来</string>
+
+    <string name="request_error">请求失败</string>
+
+    <string name="shot_detail_comment_header">%1$d 评论</string>
+    <string name="shot_detail_comment_empty">还没有评论</string>
+
+    <string name="about_title">Protein 的作者是</string>
+    <string name="about_name_ge">Jiaheng Ge</string>
+    <string name="about_name_melodie">Melodie Zhang</string>
+    <string name="about_desc">Protein is an unbiased Dribbble App to feed you with daily design
+        protein.
+    </string>
+    <string name="about_version">版本 %1$s</string>
+    <string name="about_licenses">开源申明</string>
+    <string name="about_share">分享一下</string>
+</resources>

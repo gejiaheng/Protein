@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright 2017 Jiaheng Ge
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.ge.protein.ui.widget.CurvedFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="@dimen/login_sunegg_margin_bottom"
+                android:layout_marginTop="@dimen/login_sunegg_margin_top"
+                android:src="@drawable/ic_sunegg" />
+        </FrameLayout>
+    </com.ge.protein.ui.widget.CurvedFrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/login_title_margin_top"
+        android:text="@string/login_pre_title"
+        android:textAppearance="@style/ProteinTextAppearance.Medium.XXL.Primary" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        android:lineSpacingMultiplier="@dimen/line_spacing_multiplier"
+        android:text="@string/login_pre_description"
+        android:textAppearance="@style/ProteinTextAppearance.Regular.M.Secondary" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/login_button_margin_top"
+        android:layout_marginBottom="@dimen/login_button_margin_bottom"
+        android:drawableLeft="@drawable/ic_dribbble"
+        android:drawablePadding="8dp"
+        android:padding="16dp"
+        android:text="@string/login_pre_button"
+        android:textAllCaps="false"
+        android:textColor="@color/protein_white"
+        app:backgroundTint="@color/dribbble_brand_color"/>
+
+</LinearLayout>
