@@ -5,7 +5,7 @@ Protein is an Android App for [Dribbble](https://dribbble.com/). It is fully ope
 You can discuss how-tos and best practices on creating an Android App around Protein. 
 
 ## Highlights
-- Material Design: Not an typical Material Design App, but you will find some familiar elements in Protein.
+- Material Design: Not a typical Material Design App, but you will find some familiar elements in Protein.
 - MVP architecture: Whole project is built on MVP. Views are implemented by custom views and fragments with activity being
 pure container.
 - RxJava: Model layer supported by RxJava. Also compose activity and fragment's lifecycles.
@@ -23,7 +23,9 @@ pure container.
 
 ## Build
 ### Get Started
+```shell
 ./gradlew installOpenDebug
+```
 
 ### Product Flavors
 - open: For open source purpose, use this flavor to develop and debug.
