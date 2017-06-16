@@ -63,7 +63,11 @@ android {
 
 def getDribbbleConfigs(configFile, name) {
     Properties props = new Properties()
-    props.load(new FileInputStream(new File(configFile)))
+    try {
+        props.load(new FileInputStream(new File(configFile)))
+    } catch (Exception e) {
+        return ''
+    }
     return props[name]
 }
 
