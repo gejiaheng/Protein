@@ -19,7 +19,6 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -34,7 +33,7 @@ import com.bumptech.glide.Glide;
 import com.ge.protein.mvp.BaseFragment;
 import com.ge.protein.BuildConfig;
 import com.ge.protein.R;
-import com.ge.protein.ui.widget.BadgedFourThreeImageView;
+import com.ge.protein.ui.widget.FourThreeImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,8 +42,8 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
 
     private AboutContract.Presenter presenter;
 
-    @BindView(R.id.shot_image)
-    BadgedFourThreeImageView shotImage;
+    @BindView(R.id.banner_image)
+    FourThreeImageView bannerImage;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.fab_like)
@@ -55,6 +54,8 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
     View layoutGe;
     @BindView(R.id.layout_melodie)
     View layoutMelodie;
+    @BindView(R.id.layout_others)
+    View layoutOthers;
     @BindView(R.id.version_layout)
     View versionLayout;
     @BindView(R.id.version_name)
@@ -87,12 +88,10 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
         toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
 
         int padding = getResources().getDimensionPixelSize(R.dimen.about_header_padding);
-        shotImage.setPadding(padding, padding, padding, padding);
-        shotImage.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+        bannerImage.setPadding(padding, padding, padding, padding);
         Glide.with(this)
                 .load(R.drawable.egg)
-                .crossFade()
-                .into(shotImage);
+                .into(bannerImage);
 
         Spannable span = new SpannableString(title.getContext().getString(R.string.about_title));
         span.setSpan(new TextAppearanceSpan(title.getContext(),
@@ -106,6 +105,7 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
 
         layoutGe.setOnClickListener(aboutOnClickListener);
         layoutMelodie.setOnClickListener(aboutOnClickListener);
+        layoutOthers.setOnClickListener(aboutOnClickListener);
         versionLayout.setOnClickListener(aboutOnClickListener);
         licenseLayout.setOnClickListener(aboutOnClickListener);
         shareLayout.setOnClickListener(aboutOnClickListener);
@@ -120,14 +120,23 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.version_layout:
+                    presenter.toMarket();
+                    break;
                 case R.id.license_layout:
                     presenter.toLicense();
+                    break;
+                case R.id.share_layout:
+                    presenter.shareProtein();
                     break;
                 case R.id.layout_ge:
                     presenter.openTwitter("GeJiaheng");
                     break;
                 case R.id.layout_melodie:
                     presenter.openTwitter("melodiezhang");
+                    break;
+                case R.id.layout_others:
+                    presenter.toOtherContributors();
                     break;
             }
         }
