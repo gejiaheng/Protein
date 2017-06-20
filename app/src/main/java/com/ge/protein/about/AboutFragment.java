@@ -117,6 +117,9 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.version_layout:
+                    presenter.toMarket();
+                    break;
                 case R.id.license_layout:
                     presenter.toLicense();
                     break;

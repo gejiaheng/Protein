@@ -52,6 +52,17 @@ class AboutPresenter implements AboutContract.Presenter {
     }
 
     @Override
+    public void toMarket() {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        try {
+            intent.setData(Uri.parse("market://details?id=com.ge.protein"));
+        } catch (ActivityNotFoundException e) {
+            intent.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.ge.protein"));
+        }
+        view.getContext().startActivity(intent);
+    }
+
+    @Override
     public void toLicense() {
         new MDLicenseIntent.Builder(view.getContext())
                 .libraries(getLibraryList())
