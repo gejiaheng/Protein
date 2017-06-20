@@ -41,8 +41,8 @@ As for *Callback URL*, you can use *x-protein-oauth-dribbble://callback* as defa
 and modify relative constants in [ApiConstants.java](https://github.com/gejiaheng/Protein/blob/master/app/src/main/java/com/ge/protein/data/api/ApiConstants.java).
 
 ## Distribute
-Protein is published on Google Play (coming soon). The distribution is maintained by Jiaheng Ge (gejiaheng@gmail.com). Every one who contributes
-will be on a contributor list in the App.
+Protein is published on Google Play (coming soon). The distribution is maintained by Jiaheng Ge (gejiaheng@gmail.com). 
+The [GitHub Contributors page](https://github.com/gejiaheng/Protein/graphs/contributors) will have an entry in the App.
 
 ## Contribute
 [Protein is an Open Source Project](https://github.com/gejiaheng/Protein/blob/master/CONTRIBUTING.md)
