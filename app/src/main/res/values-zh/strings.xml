@@ -24,9 +24,7 @@
 
     <string name="login">通过 Dribbble 帐号登录</string>
     <string name="login_pre_title">Nice to meet you</string>
-    <string name="login_pre_description">Protein is an unbiased Dribbble App to feed you with daily
-        design protein. Hope you enjoy it!
-    </string>
+    <string name="protein_desc">Protein is an atypical dribbble app designed with one cup of simplicity and two spoons of fun. Hungry for inspiration? Enjoy Protein.</string>
     <string name="login_pre_button">登录 Dribbble</string>
     <string name="request_access_token_failed">请求失败，请重试</string>
     <string name="login_to_proceed">请登录后操作</string>
@@ -75,9 +73,6 @@
     <string name="about_title">Protein 的作者是</string>
     <string name="about_name_ge">Jiaheng Ge</string>
     <string name="about_name_melodie">Melodie Zhang</string>
-    <string name="about_desc">Protein is an unbiased Dribbble App to feed you with daily design
-        protein.
-    </string>
     <string name="about_version">版本 %1$s</string>
     <string name="about_licenses">开源申明</string>
     <string name="about_share">分享一下</string>

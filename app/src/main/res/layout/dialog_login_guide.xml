@@ -54,7 +54,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="8dp"
         android:lineSpacingMultiplier="@dimen/line_spacing_multiplier"
-        android:text="@string/login_pre_description"
+        android:text="@string/protein_desc"
         android:textAppearance="@style/ProteinTextAppearance.Regular.M.Secondary" />
 
     <android.support.v7.widget.AppCompatButton

@@ -131,7 +131,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="24dp"
-                android:text="@string/about_desc"
+                android:text="@string/protein_desc"
                 android:textAppearance="@style/ProteinTextAppearance.Regular.M.Secondary"/>
 
             <LinearLayout

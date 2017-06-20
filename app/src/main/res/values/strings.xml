@@ -24,9 +24,7 @@
 
     <string name="login">Login with Dribbble</string>
     <string name="login_pre_title">Nice to meet you</string>
-    <string name="login_pre_description">Protein is an unbiased Dribbble App to feed you with daily
-        design protein. Hope you enjoy it!
-    </string>
+    <string name="protein_desc">Protein is an atypical dribbble app designed with one cup of simplicity and two spoons of fun. Hungry for inspiration? Enjoy Protein.</string>
     <string name="login_pre_button">Login to Dribbble</string>
     <string name="request_access_token_failed">Failed, please try again.</string>
     <string name="login_to_proceed">Please login to proceed</string>
@@ -78,7 +76,6 @@
     <string name="about_title">Protein is created by</string>
     <string name="about_name_ge">Jiaheng Ge</string>
     <string name="about_name_melodie">Melodie Zhang</string>
-    <string name="about_desc">Protein is an unbiased Dribbble App to feed you with daily design protein.</string>
     <string name="about_version">Version %1$s</string>
     <string name="about_licenses">Licenses</string>
     <string name="about_share">Spread Love</string>
