@@ -29,6 +29,9 @@ import static com.ge.protein.util.Preconditions.checkNotNull;
 
 class AboutPresenter implements AboutContract.Presenter {
 
+    private static final String PROTEIN_MARKET_LINK = "market://details?id=com.ge.protein";
+    private static final String PROTEIN_WEB_LINK = "http://play.google.com/store/apps/details?id=com.ge.protein";
+
     @NonNull
     private AboutContract.View view;
 
@@ -55,9 +58,9 @@ class AboutPresenter implements AboutContract.Presenter {
     public void toMarket() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         try {
-            intent.setData(Uri.parse("market://details?id=com.ge.protein"));
+            intent.setData(Uri.parse(PROTEIN_MARKET_LINK));
         } catch (ActivityNotFoundException e) {
-            intent.setData(Uri.parse("http://play.google.com/store/apps/details?id=com.ge.protein"));
+            intent.setData(Uri.parse(PROTEIN_WEB_LINK));
         }
         view.getContext().startActivity(intent);
     }
@@ -68,6 +71,18 @@ class AboutPresenter implements AboutContract.Presenter {
                 .libraries(getLibraryList())
                 .build()
                 .launch();
+    }
+
+    @Override
+    public void shareProtein() {
+        try {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, PROTEIN_WEB_LINK);
+            intent.setType("text/plain");
+            view.getContext().startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // ignore
+        }
     }
 
     private ArrayList<Library> getLibraryList() {

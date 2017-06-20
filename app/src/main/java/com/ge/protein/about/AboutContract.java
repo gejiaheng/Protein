@@ -31,5 +31,7 @@ interface AboutContract {
         void toMarket();
 
         void toLicense();
+
+        void shareProtein();
     }
 }

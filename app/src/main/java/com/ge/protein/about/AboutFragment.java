@@ -123,6 +123,9 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
                 case R.id.license_layout:
                     presenter.toLicense();
                     break;
+                case R.id.share_layout:
+                    presenter.shareProtein();
+                    break;
                 case R.id.layout_ge:
                     presenter.openTwitter("GeJiaheng");
                     break;
