@@ -30,11 +30,11 @@
             app:contentScrim="@color/shot_toolbar_content_scrim"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <com.ge.protein.ui.widget.BadgedFourThreeImageView
-                android:id="@+id/shot_image"
+            <com.ge.protein.ui.widget.FourThreeImageView
+                android:id="@+id/banner_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:transitionName="@string/transition_shot_image"
+                android:background="@color/colorAccent"
                 app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar

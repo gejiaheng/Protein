@@ -19,7 +19,6 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -34,7 +33,7 @@ import com.bumptech.glide.Glide;
 import com.ge.protein.mvp.BaseFragment;
 import com.ge.protein.BuildConfig;
 import com.ge.protein.R;
-import com.ge.protein.ui.widget.BadgedFourThreeImageView;
+import com.ge.protein.ui.widget.FourThreeImageView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,8 +42,8 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
 
     private AboutContract.Presenter presenter;
 
-    @BindView(R.id.shot_image)
-    BadgedFourThreeImageView shotImage;
+    @BindView(R.id.banner_image)
+    FourThreeImageView bannerImage;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.fab_like)
@@ -87,12 +86,10 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
         toolbar.setNavigationOnClickListener(v -> getActivity().onBackPressed());
 
         int padding = getResources().getDimensionPixelSize(R.dimen.about_header_padding);
-        shotImage.setPadding(padding, padding, padding, padding);
-        shotImage.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
+        bannerImage.setPadding(padding, padding, padding, padding);
         Glide.with(this)
                 .load(R.drawable.egg)
-                .crossFade()
-                .into(shotImage);
+                .into(bannerImage);
 
         Spannable span = new SpannableString(title.getContext().getString(R.string.about_title));
         span.setSpan(new TextAppearanceSpan(title.getContext(),
