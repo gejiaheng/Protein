@@ -54,6 +54,8 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
     View layoutGe;
     @BindView(R.id.layout_melodie)
     View layoutMelodie;
+    @BindView(R.id.layout_others)
+    View layoutOthers;
     @BindView(R.id.version_layout)
     View versionLayout;
     @BindView(R.id.version_name)
@@ -103,6 +105,7 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
 
         layoutGe.setOnClickListener(aboutOnClickListener);
         layoutMelodie.setOnClickListener(aboutOnClickListener);
+        layoutOthers.setOnClickListener(aboutOnClickListener);
         versionLayout.setOnClickListener(aboutOnClickListener);
         licenseLayout.setOnClickListener(aboutOnClickListener);
         shareLayout.setOnClickListener(aboutOnClickListener);
@@ -131,6 +134,9 @@ public class AboutFragment extends BaseFragment implements AboutContract.View {
                     break;
                 case R.id.layout_melodie:
                     presenter.openTwitter("melodiezhang");
+                    break;
+                case R.id.layout_others:
+                    presenter.toOtherContributors();
                     break;
             }
         }

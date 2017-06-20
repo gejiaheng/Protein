@@ -28,6 +28,8 @@ interface AboutContract {
 
         void openTwitter(String name);
 
+        void toOtherContributors();
+
         void toMarket();
 
         void toLicense();

@@ -55,6 +55,16 @@ class AboutPresenter implements AboutContract.Presenter {
     }
 
     @Override
+    public void toOtherContributors() {
+        try {
+            view.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://github.com/gejiaheng/Protein/graphs/contributors")));
+        } catch (ActivityNotFoundException e) {
+            // ignore
+        }
+    }
+
+    @Override
     public void toMarket() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         try {

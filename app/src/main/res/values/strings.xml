@@ -76,6 +76,7 @@
     <string name="about_title">Protein is created by</string>
     <string name="about_name_ge">Jiaheng Ge</string>
     <string name="about_name_melodie">Melodie Zhang</string>
+    <string name="about_other_contributors">Other Contributors</string>
     <string name="about_version">Version %1$s</string>
     <string name="about_licenses">Licenses</string>
     <string name="about_share">Spread Love</string>
