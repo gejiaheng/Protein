@@ -27,6 +27,14 @@ pure container.
 ./gradlew installOpenDebug
 ```
 
+### Attentions
+As we are using bleeding edge versions of gradle wrapper and gradle plugin. You may come across some build problems, don't panic, try the followings:
+- If you're having aapt error, add `android.enableAapt2=false` to *gradle.properties*.
+- If you're having gradle plugin too old error, do as */build.gradle* tells you.
+- Use gradlew instead of your local gradle.
+- Try to clean project and restart Android Studio.
+- If none of the above solve your problem, file an issue.
+
 ### Product Flavors
 - open: For open source purpose, use this flavor to develop and debug.
 - play: For Google Play publish, maintained by Jiaheng Ge (gejiaheng@gmail.com).
