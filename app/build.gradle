@@ -25,6 +25,8 @@ android {
         }
     }
 
+    flavorDimensions "default"
+
     buildTypes {
         release {
             minifyEnabled false
@@ -59,6 +61,7 @@ android {
     lintOptions {
         abortOnError false
     }
+
 }
 
 def getDribbbleConfigs(configFile, name) {
