@@ -56,6 +56,8 @@ The [GitHub Contributors page](https://github.com/gejiaheng/Protein/graphs/contr
 ## Contribute
 [Protein is an Open Source Project](https://github.com/gejiaheng/Protein/blob/master/CONTRIBUTING.md)
 
+Please check out Protein's [Roadmap](https://github.com/gejiaheng/Protein/wiki/Roadmap) and [Todos](https://github.com/gejiaheng/Protein/wiki/Todos)
+
 ## License
     Copyright 2017 Jiaheng Ge
 
