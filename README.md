@@ -1,7 +1,7 @@
 ![Image](/image/protein-github-cover.png)
 
 # Protein
-Protein is an Android App for [Dribbble](https://dribbble.com/). It is fully open sourced but also published on Google Play (coming soon). 
+Protein is an atypical [Dribbble](https://dribbble.com/) App designed with one cup of simplicity and two spoons of fun. It is fully open sourced but also published on Google Play (coming soon). 
 You can discuss how-tos and best practices on creating an Android App around Protein. 
 
 ## Highlights
@@ -59,7 +59,7 @@ The [GitHub Contributors page](https://github.com/gejiaheng/Protein/graphs/contr
 Please check out Protein's [Roadmap](https://github.com/gejiaheng/Protein/wiki/Roadmap) and [Todos](https://github.com/gejiaheng/Protein/wiki/Todos)
 
 ## License
-    Copyright 2017 Jiaheng Ge
+    Copyright 2017 Jiaheng Ge (gejiaheng@gmail.com)
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
