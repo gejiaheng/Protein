@@ -23,11 +23,14 @@ import com.facebook.stetho.Stetho;
 import com.ge.protein.data.api.ServiceGenerator;
 import com.ge.protein.util.AccountManager;
 import com.ge.protein.util.Constants;
+import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
 import hugo.weaving.DebugLog;
 
 public class ProteinApp extends Application {
+
+    private RefWatcher refWatcher;
 
     @DebugLog
     @Override
@@ -39,6 +42,7 @@ public class ProteinApp extends Application {
         }
         initAccessToken();
         ButterKnife.setDebug(BuildConfig.DEBUG);
+        refWatcher = installLeakCanary();
     }
 
     private void initAccessToken() {
@@ -47,6 +51,10 @@ public class ProteinApp extends Application {
         if (!TextUtils.isEmpty(accessToken)) {
             AccountManager.getInstance().setAccessToken(accessToken);
         }
+    }
+
+    protected RefWatcher installLeakCanary() {
+        return RefWatcher.DISABLED;
     }
 
 }
