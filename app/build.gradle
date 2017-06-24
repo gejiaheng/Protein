@@ -6,13 +6,13 @@ apply plugin: 'com.jakewharton.hugo'
 def enableGoogleServicesPlugin = getLocalProperty('enableGoogleServicesPlugin', 'false').toBoolean()
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0"
 
     defaultConfig {
         applicationId "com.ge.protein"
         minSdkVersion 21
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         archivesBaseName = "protein-${versionName}"
@@ -74,7 +74,7 @@ def getDribbbleConfigs(configFile, name) {
     return props[name]
 }
 
-ext.supportLibVersion = '25.3.1'
+ext.supportLibVersion = '26.0.0-beta2'
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
