@@ -28,6 +28,9 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -79,6 +82,7 @@ public class AuthFragment extends BaseFragment implements AuthContract.View, Swi
         swipeRefreshLayout.setOnRefreshListener(this);
         progressBar.setProgressTintList(
                 ResourcesCompat.getColorStateList(getResources(), R.color.colorAccent, getActivity().getTheme()));
+        cleanWebView();
         webview.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -160,5 +164,12 @@ public class AuthFragment extends BaseFragment implements AuthContract.View, Swi
             return;
 
         Snackbar.make(getView(), message, Snackbar.LENGTH_SHORT).show();
+    }
+
+    // clear all cookies in case user can't change his account and password.
+    private void cleanWebView() {
+        CookieManager.getInstance().removeAllCookies(aBoolean -> {
+            // do nothing
+        });
     }
 }
