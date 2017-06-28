@@ -30,6 +30,7 @@ public final class ApiConstants {
     public static final String DRIBBBLE_AUTHORIZE_CALLBACK_URI = "x-protein-oauth-dribbble://callback";
     public static final String DRIBBBLE_AUTHORIZE_CALLBACK_URI_SCHEMA = "x-protein-oauth-dribbble";
     public static final String DRIBBBLE_AUTHORIZE_CALLBACK_URI_HOST = "callback";
+    public static final String DRIBBBLE_AUTHORIZE_SCOPE = "public write comment upload";
 
     public static final int PER_PAGE = 20;
 }

@@ -161,7 +161,7 @@ public class AuthFragment extends BaseFragment implements AuthContract.View, Swi
         webview.loadUrl(ApiConstants.DRIBBBLE_AUTHORIZE_URL
                 + "?client_id=" + BuildConfig.DRIBBBLE_CLIENT_ID
                 + "&redirect_uri=" + ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI
-                + "&scope=" + "public write comment upload");
+                + "&scope=" + ApiConstants.DRIBBBLE_AUTHORIZE_SCOPE);
     }
 
     @Override
