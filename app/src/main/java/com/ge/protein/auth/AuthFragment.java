@@ -18,6 +18,7 @@ package com.ge.protein.auth;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -29,8 +30,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
-import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -39,9 +38,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ge.protein.BuildConfig;
-import com.ge.protein.mvp.BaseFragment;
 import com.ge.protein.R;
 import com.ge.protein.data.api.ApiConstants;
+import com.ge.protein.mvp.BaseFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -82,38 +81,75 @@ public class AuthFragment extends BaseFragment implements AuthContract.View, Swi
         swipeRefreshLayout.setOnRefreshListener(this);
         progressBar.setProgressTintList(
                 ResourcesCompat.getColorStateList(getResources(), R.color.colorAccent, getActivity().getTheme()));
+
         cleanWebView();
-        webview.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                Uri uri = request.getUrl();
-                if (ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI_SCHEMA.equals(uri.getScheme())
-                        && ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI_HOST.equals(
-                        uri.getHost())) {
-                    String code = uri.getQueryParameter("code");
-                    String error = uri.getQueryParameter("error");
-                    if (!TextUtils.isEmpty(code)) {
-                        presenter.getAccessToken(code);
-                    } else if (!TextUtils.isEmpty(error)) {
-                        Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            webview.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                    Uri uri = request.getUrl();
+                    if (ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI_SCHEMA.equals(uri.getScheme())
+                            && ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI_HOST.equals(
+                            uri.getHost())) {
+                        String code = uri.getQueryParameter("code");
+                        String error = uri.getQueryParameter("error");
+                        if (!TextUtils.isEmpty(code)) {
+                            presenter.getAccessToken(code);
+                        } else if (!TextUtils.isEmpty(error)) {
+                            Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show();
+                        }
+                        return true;
                     }
-                    return true;
+                    return super.shouldOverrideUrlLoading(view, request);
                 }
-                return super.shouldOverrideUrlLoading(view, request);
-            }
 
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                progressBar.setVisibility(View.VISIBLE);
-            }
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    super.onPageStarted(view, url, favicon);
+                    progressBar.setVisibility(View.VISIBLE);
+                }
 
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                progressBar.setVisibility(View.GONE);
-            }
-        });
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+        } else {
+            webview.setWebViewClient(new WebViewClient() {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    Uri uri = Uri.parse(url);
+                    if (ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI_SCHEMA.equals(uri.getScheme())
+                            && ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI_HOST.equals(
+                            uri.getHost())) {
+                        String code = uri.getQueryParameter("code");
+                        String error = uri.getQueryParameter("error");
+                        if (!TextUtils.isEmpty(code)) {
+                            presenter.getAccessToken(code);
+                        } else if (!TextUtils.isEmpty(error)) {
+                            Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show();
+                        }
+                        return true;
+                    }
+                    return super.shouldOverrideUrlLoading(view, url);
+                }
+
+                @Override
+                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                    super.onPageStarted(view, url, favicon);
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    super.onPageFinished(view, url);
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+        }
+
         webview.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -121,6 +157,7 @@ public class AuthFragment extends BaseFragment implements AuthContract.View, Swi
                 progressBar.setProgress(newProgress);
             }
         });
+
         webview.loadUrl(ApiConstants.DRIBBBLE_AUTHORIZE_URL
                 + "?client_id=" + BuildConfig.DRIBBBLE_CLIENT_ID
                 + "&redirect_uri=" + ApiConstants.DRIBBBLE_AUTHORIZE_CALLBACK_URI
