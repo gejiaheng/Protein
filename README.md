@@ -1,7 +1,7 @@
 ![Image](/image/protein-github-cover.png)
 
 # Protein
-Protein is an atypical [Dribbble](https://dribbble.com/) App designed with one cup of simplicity and two spoons of fun. It is fully open sourced but also published on Google Play (coming soon). 
+Protein is an atypical [Dribbble](https://dribbble.com/) App designed with one cup of simplicity and two spoons of fun. It is fully open sourced but also published on [Google Play](https://play.google.com/store/apps/details?id=com.ge.protein). 
 You can discuss how-tos and best practices on creating an Android App around Protein. 
 
 ## Highlights
@@ -50,7 +50,7 @@ As for *Callback URL*, you can use *x-protein-oauth-dribbble://callback* as defa
 and modify relative constants in [ApiConstants.java](https://github.com/gejiaheng/Protein/blob/master/app/src/main/java/com/ge/protein/data/api/ApiConstants.java).
 
 ## Distribute
-Protein is published on Google Play (coming soon). The distribution is maintained by Jiaheng Ge (gejiaheng@gmail.com). 
+Protein is published on [Google Play](https://play.google.com/store/apps/details?id=com.ge.protein). The distribution is maintained by Jiaheng Ge (gejiaheng@gmail.com). 
 The [GitHub Contributors page](https://github.com/gejiaheng/Protein/graphs/contributors) will have an entry in the App.
 
 ## Contribute
