@@ -20,10 +20,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 
 import com.ge.protein.R;
 import com.ge.protein.data.ProteinAdapterFactory;
+import com.ge.protein.data.api.ErrorUtils;
 import com.ge.protein.data.model.AccessToken;
 import com.ge.protein.main.MainActivity;
 import com.ge.protein.util.AccountManager;
@@ -34,6 +34,7 @@ import com.trello.rxlifecycle2.android.FragmentEvent;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.ResponseBody;
 
 import static com.ge.protein.util.Preconditions.checkNotNull;
 
@@ -64,9 +65,8 @@ class AuthPresenter implements AuthContract.Presenter {
                 .subscribe(accessTokenResponse -> {
                     view.setProgressDialogVisibility(false);
 
-                    AccessToken accessToken = accessTokenResponse.body();
-
-                    if (accessToken != null && !TextUtils.isEmpty(accessToken.access_token())) {
+                    if (accessTokenResponse.isSuccessful()) {
+                        AccessToken accessToken = accessTokenResponse.body();
                         AccountManager.getInstance().setAccessToken(accessToken);
 
                         SharedPreferences sp = view.getContext().getSharedPreferences(
@@ -82,6 +82,9 @@ class AuthPresenter implements AuthContract.Presenter {
                         Intent intent = new Intent(view.getContext(), MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         view.getContext().startActivity(intent);
+                    } else {
+                        view.setProgressDialogVisibility(false);
+                        view.showSnackbar(ErrorUtils.parseError(accessTokenResponse).error());
                     }
                 }, throwable -> {
                     view.setProgressDialogVisibility(false);

@@ -50,6 +50,10 @@ public class ServiceGenerator {
         cache = new Cache(context.getCacheDir(), 20 * 1024 * 1024);
     }
 
+    public static Retrofit retrofit() {
+        return retrofit;
+    }
+
     public static <S> S createService(Class<S> serviceClass, final AccessToken token) {
         String currentToken = token == null ? BuildConfig.DRIBBBLE_CLIENT_ACCESS_TOKEN : token.access_token();
         if (retrofit == null || !currentToken.equals(lastToken)) {
