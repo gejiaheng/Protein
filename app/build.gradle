@@ -13,8 +13,8 @@ android {
         applicationId "com.ge.protein"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         archivesBaseName = "protein-${versionName}"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
