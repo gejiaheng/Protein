@@ -76,67 +76,67 @@ def getDribbbleConfigs(configFile, name) {
     return props[name]
 }
 
-ext.supportLibVersion = '26.0.0-beta2'
+ext.supportLibVersion = '26.0.2'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Test
-    testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile 'com.android.support.test:rules:0.5'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
-    androidTestCompile "com.android.support:support-annotations:${supportLibVersion}"
-    androidTestCompile 'com.google.code.findbugs:jsr305:3.0.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:0.5'
+    androidTestImplementation 'com.android.support.test:rules:0.5'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:2.2.2'
+    androidTestImplementation "com.android.support:support-annotations:${supportLibVersion}"
+    androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.1'
 
     // Android support library
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
-    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
-    compile "com.android.support:cardview-v7:${supportLibVersion}"
-    compile "com.android.support:design:${supportLibVersion}"
-    compile "com.android.support:palette-v7:${supportLibVersion}"
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportLibVersion}"
+    implementation "com.android.support:cardview-v7:${supportLibVersion}"
+    implementation "com.android.support:design:${supportLibVersion}"
+    implementation "com.android.support:palette-v7:${supportLibVersion}"
 
     // Network and data
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile 'com.google.code.gson:gson:2.8'
-    compile 'com.google.auto.value:auto-value:1.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.google.code.gson:gson:2.8'
+    implementation 'com.google.auto.value:auto-value:1.2'
     annotationProcessor 'com.google.auto.value:auto-value:1.2'
     annotationProcessor 'com.ryanharter.auto.value:auto-value-parcel:0.2.5'
-    compile 'com.ryanharter.auto.value:auto-value-gson:0.4.6'
+    implementation 'com.ryanharter.auto.value:auto-value-gson:0.4.6'
     annotationProcessor 'com.ryanharter.auto.value:auto-value-gson:0.4.6'
     annotationProcessor 'com.gabrielittner.auto.value:auto-value-with:1.0.0'
 
     // ReactiveX
-    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
-    compile 'com.trello.rxlifecycle2:rxlifecycle:2.0.1'
-    compile 'com.trello.rxlifecycle2:rxlifecycle-android:2.0.1'
-    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1'
-    compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.0.1'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.0.1'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
 
     // UI
-    compile 'com.github.bumptech.glide:glide:3.8.0'
-    compile('com.ge.droid:mdlicense:0.3.1') {
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation('com.ge.droid:mdlicense:0.3.1') {
         exclude group: 'com.android.support'
     }
-    compile 'com.airbnb.android:epoxy:2.1.0'
+    implementation 'com.airbnb.android:epoxy:2.1.0'
     annotationProcessor 'com.airbnb.android:epoxy-processor:2.1.0'
 
     // Firebase
-    playCompile 'com.google.firebase:firebase-core:10.2.0'
-    playCompile 'com.google.firebase:firebase-crash:10.2.0'
+    playImplementation 'com.google.firebase:firebase-core:10.2.0'
+    playImplementation 'com.google.firebase:firebase-crash:10.2.0'
 
     // Others
-    compile 'com.facebook.stetho:stetho:1.5.0'
-    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
-    compile 'com.jakewharton:butterknife:8.5.1'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    implementation 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.airbnb:deeplinkdispatch:3.1.0'
+    implementation 'com.airbnb:deeplinkdispatch:3.1.0'
     annotationProcessor 'com.airbnb:deeplinkdispatch-processor:3.1.0'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 }
 
 // only apply Google services plugin for flavor play to use Firebase
