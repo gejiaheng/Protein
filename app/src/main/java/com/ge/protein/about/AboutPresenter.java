@@ -117,6 +117,7 @@ class AboutPresenter implements AboutContract.Presenter {
         libraries.add(new Library("Epoxy", "Airbnb", "https://github.com/airbnb/epoxy"));
         libraries.add(new Library("Butter Knife", "Jake Wharton", "https://github.com/JakeWharton/butterknife"));
         libraries.add(new Library("DeepLinkDispatch", "Airbnb", "https://github.com/airbnb/DeepLinkDispatch"));
+        libraries.add(new Library("LeakCanary", "Square", "https://github.com/square/leakcanary"));
 
         return libraries;
     }
