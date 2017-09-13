@@ -26,7 +26,10 @@ import com.airbnb.epoxy.EpoxyAttribute;
 import com.airbnb.epoxy.EpoxyModelClass;
 import com.airbnb.epoxy.EpoxyModelWithHolder;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.TransitionOptions;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.request.RequestOptions;
 import com.ge.protein.R;
 import com.ge.protein.data.model.Comment;
 import com.ge.protein.ui.epoxy.BaseEpoxyHolder;
@@ -42,6 +45,10 @@ public abstract class ShotCommentModel extends EpoxyModelWithHolder<ShotCommentM
     @EpoxyAttribute
     View.OnClickListener shotCommentOnClickListener;
 
+    private TransitionOptions transitionOptions = DrawableTransitionOptions.withCrossFade();
+    private RequestOptions requestOptions = RequestOptions.placeholderOf(R.color.avatar_placeholder)
+            .diskCacheStrategy(DiskCacheStrategy.ALL);
+
     @Override
     protected ShotCommentHolder createNewHolder() {
         return new ShotCommentHolder();
@@ -53,9 +60,8 @@ public abstract class ShotCommentModel extends EpoxyModelWithHolder<ShotCommentM
 
         Glide.with(holder.avatar.getContext())
                 .load(comment.user().avatar_url())
-                .crossFade()
-                .placeholder(R.color.avatar_placeholder)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .transition(transitionOptions)
+                .apply(requestOptions)
                 .into(holder.avatar);
         holder.userName.setText(comment.user().name());
         holder.commentBody.setText(TextUtils.isEmpty(comment.body()) ?

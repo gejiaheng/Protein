@@ -41,6 +41,9 @@ import com.jakewharton.rxbinding2.view.RxView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+import static com.bumptech.glide.request.RequestOptions.placeholderOf;
+
 public class MainView extends CoordinatorLayout implements MainContract.View {
 
     private MainContract.Presenter presenter;
@@ -122,7 +125,7 @@ public class MainView extends CoordinatorLayout implements MainContract.View {
     public void setDefaultUserInfo() {
         Glide.with(getContext())
                 .load(R.mipmap.ic_launcher)
-                .crossFade()
+                .transition(withCrossFade())
                 .into(userAvatar);
         setUserName(getContext().getString(R.string.action_login));
     }
@@ -131,9 +134,8 @@ public class MainView extends CoordinatorLayout implements MainContract.View {
     public void setUserInfo(User user) {
         Glide.with(getContext())
                 .load(user.avatar_url())
-                .crossFade()
-                .placeholder(R.color.avatar_placeholder)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .transition(withCrossFade())
+                .apply(placeholderOf(R.color.avatar_placeholder).diskCacheStrategy(DiskCacheStrategy.ALL))
                 .into(userAvatar);
         setUserName(user.name());
     }

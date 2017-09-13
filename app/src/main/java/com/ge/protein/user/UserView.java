@@ -44,6 +44,9 @@ import com.ge.protein.util.StringUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+import static com.bumptech.glide.request.RequestOptions.placeholderOf;
+
 public class UserView extends CoordinatorLayout implements UserContract.View, View.OnClickListener {
 
     private UserContract.Presenter presenter;
@@ -158,9 +161,8 @@ public class UserView extends CoordinatorLayout implements UserContract.View, Vi
 
         Glide.with(getContext())
                 .load(user.avatar_url())
-                .crossFade()
-                .placeholder(R.color.avatar_placeholder)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .transition(withCrossFade())
+                .apply(placeholderOf(R.color.avatar_placeholder).diskCacheStrategy(DiskCacheStrategy.ALL))
                 .into(avatar);
 
         userBio.setVisibility(TextUtils.isEmpty(user.bio()) ? GONE : VISIBLE);

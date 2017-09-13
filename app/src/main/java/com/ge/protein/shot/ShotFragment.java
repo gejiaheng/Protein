@@ -44,6 +44,9 @@ import com.ge.protein.util.glide.DribbbleTarget;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
+import static com.bumptech.glide.request.RequestOptions.placeholderOf;
+
 public class ShotFragment extends BaseFragment implements ShotContract.View {
 
     private ShotContract.Presenter presenter;
@@ -113,18 +116,16 @@ public class ShotFragment extends BaseFragment implements ShotContract.View {
     public void show(Shot shot) {
         Glide.with(this)
                 .load(shot.images().best())
-                .crossFade()
-                .placeholder(R.color.shot_image_placeholder_8)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .transition(withCrossFade())
+                .apply(placeholderOf(R.color.shot_image_placeholder_8).diskCacheStrategy(DiskCacheStrategy.ALL))
                 .into(new DribbbleTarget(shotImage));
 
         shotTitle.setText(shot.title());
         if (shot.user() != null) {
             Glide.with(this)
                     .load(shot.user().avatar_url())
-                    .crossFade()
-                    .placeholder(R.color.avatar_placeholder)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .transition(withCrossFade())
+                    .apply(placeholderOf(R.color.avatar_placeholder).diskCacheStrategy(DiskCacheStrategy.ALL))
                     .into(userAvatar);
             userName.setText(shot.user().name());
         }
