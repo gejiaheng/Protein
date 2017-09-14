@@ -15,17 +15,22 @@
  */
 package com.ge.protein.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 
 import com.ge.protein.about.AboutActivity;
+import com.ge.protein.data.ProteinAdapterFactory;
 import com.ge.protein.data.model.User;
 import com.ge.protein.ui.dialog.LogoutDialog;
 import com.ge.protein.ui.dialog.LoginGuideDialog;
 import com.ge.protein.user.UserActivity;
 import com.ge.protein.util.AccountManager;
+import com.ge.protein.util.Constants;
+import com.google.gson.GsonBuilder;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 
@@ -87,14 +92,37 @@ class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void getAuthenticatedUser() {
+        String savedUserString = view.getContext()
+                .getSharedPreferences(Constants.DEFAULT_SHARED_PREFERENCES, Context.MODE_PRIVATE)
+                .getString(Constants.USER, null);
+        if (!TextUtils.isEmpty(savedUserString)) {
+            User savedUser = new GsonBuilder()
+                    .registerTypeAdapterFactory(ProteinAdapterFactory.create())
+                    .create()
+                    .fromJson(savedUserString, User.class);
+            AccountManager.getInstance().setMe(savedUser);
+            view.setUserInfo(savedUser);
+        }
+
         repository.getMe()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(((LifecycleProvider<ActivityEvent>) view.getContext()).bindUntilEvent(ActivityEvent.DESTROY))
                 .subscribe(response -> {
                     User user = response.body();
-                    AccountManager.getInstance().setMe(user);
-                    view.setUserInfo(user);
+                    if (!user.equals(AccountManager.getInstance().getMe())) {
+                        AccountManager.getInstance().setMe(user);
+                        view.setUserInfo(user);
+                        String userString = new GsonBuilder()
+                                .registerTypeAdapterFactory(ProteinAdapterFactory.create())
+                                .create()
+                                .toJson(user);
+                        view.getContext()
+                                .getSharedPreferences(Constants.DEFAULT_SHARED_PREFERENCES, Context.MODE_PRIVATE)
+                                .edit()
+                                .putString(Constants.USER, userString)
+                                .apply();
+                    }
                 }, throwable -> {
 
                 });

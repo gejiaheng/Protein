@@ -34,7 +34,6 @@ import com.trello.rxlifecycle2.android.FragmentEvent;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
 
 import static com.ge.protein.util.Preconditions.checkNotNull;
 

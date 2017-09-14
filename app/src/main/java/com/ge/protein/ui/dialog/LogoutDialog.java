@@ -42,7 +42,7 @@ public class LogoutDialog extends DialogFragment {
                     AccountManager.getInstance().clear();
                     SharedPreferences sp = getActivity().getSharedPreferences(Constants.DEFAULT_SHARED_PREFERENCES,
                             Context.MODE_PRIVATE);
-                    sp.edit().remove(Constants.ACCESS_TOKEN_KEY).apply();
+                    sp.edit().remove(Constants.ACCESS_TOKEN_KEY).remove(Constants.USER).apply();
 
                     Intent intent = new Intent(getContext(), MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
