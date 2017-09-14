@@ -145,13 +145,13 @@ class ShotPresenter implements ShotContract.Presenter, InstanceStatePresenter {
         if (like) {
             repository.unlikeShot(shotId);
             view.setLikeStatus(false);
-            shot = shot.withLikesCount(shot.likesCount() - 1);
-            view.updateLikesCount(view.getContext().getString(R.string.shot_likes_count, shot.likesCount()));
+            shot = shot.withLikesCount(shot.likes_count() - 1);
+            view.updateLikesCount(view.getContext().getString(R.string.shot_likes_count, shot.likes_count()));
         } else {
             repository.likeShot(shotId);
             view.setLikeStatus(true);
-            shot = shot.withLikesCount(shot.likesCount() + 1);
-            view.updateLikesCount(view.getContext().getString(R.string.shot_likes_count, shot.likesCount()));
+            shot = shot.withLikesCount(shot.likes_count() + 1);
+            view.updateLikesCount(view.getContext().getString(R.string.shot_likes_count, shot.likes_count()));
 
         }
         like = !like;

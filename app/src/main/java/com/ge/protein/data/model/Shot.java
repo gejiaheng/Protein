@@ -44,7 +44,7 @@ public abstract class Shot implements Parcelable {
 
     public abstract long views_count();
 
-    public abstract long likesCount();
+    public abstract long likes_count();
 
     public abstract long comments_count();
 
@@ -84,7 +84,7 @@ public abstract class Shot implements Parcelable {
 
     public abstract Shot withUser(User user);
 
-    public abstract Shot withLikesCount(long likesCount);
+    public abstract Shot withLikesCount(long likes_count);
 
     public static TypeAdapter<Shot> typeAdapter(Gson gson) {
         return new AutoValue_Shot.GsonTypeAdapter(gson).nullSafe();

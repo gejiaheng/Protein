@@ -135,7 +135,7 @@ public class ShotFragment extends BaseFragment implements ShotContract.View {
                 StringUtils.trimTrailingWhitespace(Html.fromHtml(shot.description())));
         shotDesc.setVisibility(TextUtils.isEmpty(shot.description()) ? View.GONE : View.VISIBLE);
         shotDesc.setMovementMethod(LinkMovementMethod.getInstance());
-        shotLikesCountText.setText(shotLikesCountText.getContext().getString(R.string.shot_likes_count, shot.likesCount()));
+        shotLikesCountText.setText(shotLikesCountText.getContext().getString(R.string.shot_likes_count, shot.likes_count()));
         shotViewsCountText.setText(shotViewsCountText.getContext().getString(R.string.shot_views_count, shot.views_count()));
         shotCommentsCountText.setText(shotCommentsCountText.getContext().getString(R.string.shot_comments_count,
                 shot.comments_count()));
