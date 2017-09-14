@@ -28,9 +28,8 @@ pure container.
 ```
 
 ### Attentions
-As we are using bleeding edge versions of gradle wrapper and gradle plugin. You may come across some build problems, don't panic, try the followings:
-- Update Android Studio to latest canary version.
-- If you're having aapt error, add `android.enableAapt2=false` to *gradle.properties*.
+As we are using bleeding edge versions of gradle wrapper, gradle plugin and Android Studio. You may come across some build problems, don't panic, try the followings:
+- Update Android Studio to latest beta/canary version. Current is Android Studio 3.0 Beta 5
 - If you're having gradle plugin too old error, do as */build.gradle* tells you.
 - Use gradlew instead of your local gradle.
 - Try to clean project and restart Android Studio.
