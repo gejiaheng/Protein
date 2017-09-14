@@ -26,6 +26,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="${appName}"
         android:theme="@style/Protein"
+        android:appCategory="image"
         tools:replace="android:label">
 
         <activity android:name=".main.MainActivity">
