@@ -13,7 +13,7 @@ buildscript {
         // To override this check from the command line please set the ANDROID_DAILY_OVERRIDE environment variable to "xxxxxxxxxxxxxxxxx"
         // If you come across the above error, run the following command and restart Android Studio
         // launchctl setenv ANDROID_DAILY_OVERRIDE <your-value-on-error-message>
-        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
         classpath 'com.google.gms:google-services:3.1.0'
 
