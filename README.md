@@ -4,6 +4,11 @@
 Protein is an atypical [Dribbble](https://dribbble.com/) App designed with one cup of simplicity and two spoons of fun. It is fully open sourced but also published on [Google Play](https://play.google.com/store/apps/details?id=com.ge.protein). 
 You can discuss how-tos and best practices on creating an Android App around Protein. 
 
+## Attention
+Due to the [breaking change of Dribbble API v1](http://developer.dribbble.com/changes/), I need to migrate to API v2. Unfortunately, most of the current features are't supported by API v2. So, in the following months, I'll:
+- Try to recover some basic features
+- Implement a redesign of Protein
+
 ## Highlights
 - Material Design: Not a typical Material Design App, but you will find some familiar elements in Protein.
 - MVP architecture: Whole project is built on MVP. Views are implemented by custom views and fragments with activity being
